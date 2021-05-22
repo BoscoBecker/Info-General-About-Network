@@ -8,3 +8,5 @@ packer_cache/
 *.res
 *.exe
 *.~
+*.local
+.dproj
