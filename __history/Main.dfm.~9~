@@ -1,0 +1,44 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 515
+  ClientWidth = 711
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 60
+    Width = 119
+    Height = 13
+    Caption = 'Info About Adpter WI-FI'
+  end
+  object mmInfoWifi: TMemo
+    Left = 8
+    Top = 79
+    Width = 681
+    Height = 394
+    ReadOnly = True
+    TabOrder = 0
+  end
+  object btnGetInfo: TButton
+    Left = 8
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Get Info Wifi'
+    TabOrder = 1
+    OnClick = btnGetInfoClick
+  end
+  object loading: TActivityIndicator
+    Left = 329
+    Top = 41
+  end
+end
