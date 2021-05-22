@@ -4,7 +4,7 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'All Info About Network'
   ClientHeight = 523
-  ClientWidth = 652
+  ClientWidth = 709
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,7 +13,7 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   DesignSize = (
-    652
+    709
     523)
   PixelsPerInch = 96
   TextHeight = 13
@@ -33,7 +33,7 @@ object Form1: TForm1
   object mmInfoWifi: TMemo
     Left = 8
     Top = 58
-    Width = 636
+    Width = 693
     Height = 457
     Anchors = [akLeft, akTop, akRight, akBottom]
     ReadOnly = True
@@ -42,20 +42,18 @@ object Form1: TForm1
     ExplicitWidth = 683
   end
   object btnGetInfo: TButton
-    Left = 505
-    Top = 27
+    Left = 562
+    Top = 20
     Width = 75
     Height = 25
     Anchors = [akTop, akRight]
     Caption = 'Get Info'
     TabOrder = 1
     OnClick = btnGetInfoClick
-    ExplicitLeft = 562
+    ExplicitLeft = 552
   end
   object loading: TActivityIndicator
-    Left = 602
+    Left = 659
     Top = 20
-    Anchors = [akTop, akRight]
-    ExplicitLeft = 659
   end
 end
