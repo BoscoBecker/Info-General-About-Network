@@ -3,11 +3,11 @@
 	<Transactions>
     <Transaction>2021/05/14 17:49:47.000.529,=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2021/05/14 17:59:35.000.366,=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2021/05/22 17:14:41.905,=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2021/05/22 17:15:47.084,C:\Projetos\Wifi-Connected\Main.pas=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2021/05/22 17:15:47.084,C:\Projetos\Wifi-Connected\Main.dfm=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2021/05/22 17:15:54.477,C:\Projetos\Wifi-Connected\InfoWifi.dproj=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2021/05/22 17:16:01.708,=C:\Projetos\Wifi-Connected\TBLIST\NETWORKLIST_TLB.pas</Transaction>
-    <Transaction>2021/05/22 17:27:13.104,C:\Projetos\Wifi-Connected\InfoNetwork.dproj=C:\Projetos\Wifi-Connected\InfoWifi.dproj</Transaction>
+    <Transaction>2021/05/22 17:14:41.000.905,=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/22 17:15:47.000.084,C:\Projetos\Wifi-Connected\Main.pas=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/22 17:15:47.000.084,C:\Projetos\Wifi-Connected\Main.dfm=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/05/22 17:15:54.000.477,C:\Projetos\Wifi-Connected\InfoWifi.dproj=C:\Users\joao.becker\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2021/05/22 17:16:01.000.708,=C:\Projetos\Wifi-Connected\TBLIST\NETWORKLIST_TLB.pas</Transaction>
+    <Transaction>2021/05/22 17:27:13.000.104,C:\Projetos\Wifi-Connected\InfoNetwork.dproj=C:\Projetos\Wifi-Connected\InfoWifi.dproj</Transaction>
   </Transactions>
 </BorlandProject>
