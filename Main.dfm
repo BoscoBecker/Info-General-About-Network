@@ -43,7 +43,7 @@ object Form1: TForm1
     ExplicitHeight = 457
   end
   object btnGetInfo: TButton
-    Left = 543
+    Left = 607
     Top = 27
     Width = 75
     Height = 25
@@ -51,12 +51,5 @@ object Form1: TForm1
     Caption = 'Get Info'
     TabOrder = 1
     OnClick = btnGetInfoClick
-    ExplicitLeft = 562
-  end
-  object loading: TActivityIndicator
-    Left = 640
-    Top = 20
-    Anchors = [akTop, akRight]
-    ExplicitLeft = 659
   end
 end

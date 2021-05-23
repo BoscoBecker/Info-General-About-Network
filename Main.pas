@@ -11,15 +11,12 @@ type
   TForm1 = class(TForm)
     mmInfoWifi: TMemo;
     btnGetInfo: TButton;
-    loading: TActivityIndicator;
     Label1: TLabel;
     procedure btnGetInfoClick(Sender: TObject);
   private
     { Private declarations }
     procedure GetInfo;
     procedure GetNetworks;
-    procedure GetNetworkListManagerInfo;
-
     function GetNetworkCategory(Category : NLM_NETWORK_CATEGORY) : string;
     function GetNetworkDomainType(DomainType : NLM_DOMAIN_TYPE) : string;
     function GetNetworkConnectivity(Connectivity : NLM_CONNECTIVITY) : string;
@@ -39,13 +36,8 @@ implementation
 
 procedure TForm1.btnGetInfoClick(Sender: TObject);
 begin
-  loading.Animate := True;
-  try
-    GetInfo;
-    GetNetworks
-  finally
-    loading.Animate := False;
-  end;
+  GetInfo;
+  GetNetworks;
 end;
 
 procedure TForm1.GetInfo;
@@ -114,17 +106,6 @@ begin
   end;
 end;
 
-procedure TForm1.GetNetworkListManagerInfo;
-var
-  NetworkListManager: INetworkListManager;
-begin
-  NetworkListManager := CoNetworkListManager.Create;
-  mmInfoWifi.Lines.add('Network Connected ');
-  mmInfoWifi.Lines.add(Format('Connected       : %s', [boolToStr(NetworkListManager.IsConnected, True)]));
-  mmInfoWifi.Lines.add(Format('Internet        : %s', [boolToStr(NetworkListManager.IsConnectedToInternet, True)]));
-  mmInfoWifi.Lines.add(Format('Connectivity    : %s', [GetNetworkConnectivity(NetworkListManager.GetConnectivity)]));
-end;
-
 procedure TForm1.GetNetworks;
 var
   NetworkListManager: INetworkListManager;
@@ -181,20 +162,20 @@ begin
        mmInfoWifi.Lines.add(Format('Connected       : %s', [boolToStr(Network.IsConnected, True)]));
        mmInfoWifi.Lines.add(Format('Internet        : %s', [boolToStr(Network.IsConnectedToInternet, True)]));
 
-         EnumNetworksConnections := Network.GetNetworkConnections();
+       EnumNetworksConnections := Network.GetNetworkConnections();
 
-         mmInfoWifi.Lines.add('Connections');
-         while true do
+       mmInfoWifi.Lines.add('Connections');
+       while true do
+       begin
+         EnumNetworksConnections.Next(1, NetworkConnection, pceltFetched);
+         if (pceltFetched>0)  then
          begin
-            EnumNetworksConnections.Next(1, NetworkConnection, pceltFetched);
-              if (pceltFetched>0)  then
-              begin
-                mmInfoWifi.Lines.add(Format('Adapter Id    : %s', [GuidToString(NetworkConnection.GetAdapterId)]));
-                mmInfoWifi.Lines.add(Format('Connection Id : %s', [GuidToString(NetworkConnection.GetConnectionId)]));
-              end
-              else
-              break;
-         end;
+           mmInfoWifi.Lines.add(Format('Adapter Id    : %s', [GuidToString(NetworkConnection.GetAdapterId)]));
+           mmInfoWifi.Lines.add(Format('Connection Id : %s', [GuidToString(NetworkConnection.GetConnectionId)]));
+         end
+         else
+         break;
+       end;
      end
      else
      Break;

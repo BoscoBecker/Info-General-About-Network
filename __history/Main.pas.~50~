@@ -11,7 +11,6 @@ type
   TForm1 = class(TForm)
     mmInfoWifi: TMemo;
     btnGetInfo: TButton;
-    loading: TActivityIndicator;
     Label1: TLabel;
     procedure btnGetInfoClick(Sender: TObject);
   private
@@ -39,14 +38,8 @@ implementation
 
 procedure TForm1.btnGetInfoClick(Sender: TObject);
 begin
-  loading.Animate := True;
-  try
-    GetInfo;
-    GetNetworkListManagerInfo;
-    GetNetworks
-  finally
-    loading.Animate := False;
-  end;
+  GetInfo;
+  GetNetworks
 end;
 
 procedure TForm1.GetInfo;
@@ -65,6 +58,7 @@ begin
      if (pceltFetched>0)  then
      begin
         mmInfoWifi.Lines.add('Info About Network Adpter connected');
+        mmInfoWifi.Lines.add(#13);
         mmInfoWifi.Lines.add(Format('Adapter Id      : %s', [GuidToString(NetworkConnection.GetAdapterId)]));
         mmInfoWifi.Lines.add(Format('Connection Id   : %s', [GuidToString(NetworkConnection.GetConnectionId)]));
         mmInfoWifi.Lines.add(Format('Domain Type     : %s', [GetNetworkDomainType(NetworkConnection.GetDomainType)]));
@@ -152,6 +146,7 @@ begin
      EnumNetworks.Next(1, Network, fetched);
      if (fetched>0)  then
      begin
+       mmInfoWifi.Lines.add(#13#10);
        mmInfoWifi.Lines.add('General info about networks ');
        mmInfoWifi.Lines.add(Format('%s - %s', [Network.GetName, Network.GetDescription]));
        mmInfoWifi.Lines.add(Format('Network Id  : %s', [GuidToString(Network.GetNetworkId)]));
@@ -188,8 +183,8 @@ begin
             EnumNetworksConnections.Next(1, NetworkConnection, pceltFetched);
               if (pceltFetched>0)  then
               begin
-                mmInfoWifi.Lines.add(Format('  Adapter Id    : %s', [GuidToString(NetworkConnection.GetAdapterId)]));
-                mmInfoWifi.Lines.add(Format('  Connection Id : %s', [GuidToString(NetworkConnection.GetConnectionId)]));
+                mmInfoWifi.Lines.add(Format('Adapter Id    : %s', [GuidToString(NetworkConnection.GetAdapterId)]));
+                mmInfoWifi.Lines.add(Format('Connection Id : %s', [GuidToString(NetworkConnection.GetConnectionId)]));
               end
               else
               break;

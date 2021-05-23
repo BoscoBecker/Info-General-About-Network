@@ -11,15 +11,12 @@ type
   TForm1 = class(TForm)
     mmInfoWifi: TMemo;
     btnGetInfo: TButton;
-    loading: TActivityIndicator;
     Label1: TLabel;
     procedure btnGetInfoClick(Sender: TObject);
   private
     { Private declarations }
     procedure GetInfo;
     procedure GetNetworks;
-    procedure GetNetworkListManagerInfo;
-
     function GetNetworkCategory(Category : NLM_NETWORK_CATEGORY) : string;
     function GetNetworkDomainType(DomainType : NLM_DOMAIN_TYPE) : string;
     function GetNetworkConnectivity(Connectivity : NLM_CONNECTIVITY) : string;
@@ -39,14 +36,8 @@ implementation
 
 procedure TForm1.btnGetInfoClick(Sender: TObject);
 begin
-  loading.Animate := True;
-  try
-    GetInfo;
-    GetNetworkListManagerInfo;
-    GetNetworks
-  finally
-    loading.Animate := False;
-  end;
+  GetInfo;
+  GetNetworks;
 end;
 
 procedure TForm1.GetInfo;
@@ -65,6 +56,7 @@ begin
      if (pceltFetched>0)  then
      begin
         mmInfoWifi.Lines.add('Info About Network Adpter connected');
+        mmInfoWifi.Lines.add(#13);
         mmInfoWifi.Lines.add(Format('Adapter Id      : %s', [GuidToString(NetworkConnection.GetAdapterId)]));
         mmInfoWifi.Lines.add(Format('Connection Id   : %s', [GuidToString(NetworkConnection.GetConnectionId)]));
         mmInfoWifi.Lines.add(Format('Domain Type     : %s', [GetNetworkDomainType(NetworkConnection.GetDomainType)]));
